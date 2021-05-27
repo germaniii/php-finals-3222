@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Address Book</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	
