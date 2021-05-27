@@ -1,0 +1,31 @@
+//create database in SQL
+//run MySQL in XAMPP > goto http://localhost/phpmyadmin > create new database >click database then goto SQL tab > type the command below.
+..............................................................
+create table contact (					
+    id int(8) not null PRIMARY KEY,
+    name varchar(128) not null,
+    address varchar(500) not null,
+    number int(11) not null,
+    email varchar(128) not null,
+    date varchar(128) not null
+);
+...............................................................
+
+
+
+insert into contact (id, name, address, number, email, date) VALUES ('18101050', 'Jan Carlo D. Orlanda', '80A Villalon Drive', '09955242711', 'carlosorlando2919@gmail.com', '2021-5-27 7:50:01');	//add row in table in SQL
+
+
+select * from contact where id = '18101050'		// where is similar to if command so bale "select all from database 'contact' where the id is 18101050"
+
+
+update contact						//update specific variable
+set id='18101050', name='Meg Breva Escario'
+where id='18100010'
+
+
+DELETE from contact					//delete contact row
+where id='18101050'
+
+
+select * from contact order by id asc			//order by (var name) (desc/asc)
