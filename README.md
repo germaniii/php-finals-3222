@@ -1,6 +1,3 @@
-# php-finals-3222
-This is the repository for the Finals Requirement for CpE3222 Which is a 
-
 # Simple Contact Tracing Application
 This application is a requirement for our CpE 3222 subject.
  
