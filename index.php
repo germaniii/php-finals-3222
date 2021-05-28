@@ -19,15 +19,6 @@
 			ID Number: <input type="tel" pattern="[0-9]{8}" placeholder="16101002"name="id" required><br><br>	
 			<input type="submit" name="signin" value="Sign-In">
 		</form>
-		<h2>Register</h2>
-		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			<input class="button" type="submit" name="register" value="Register Now">
-		</form>
-		<h2>Administrator Login</h2>
-		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			<input class="button" type="submit" name="adlogin" value="Admin Login">
-		</form>
-	</div>
 		<?php
 			date_default_timezone_set('Asia/Manila');
 			error_reporting (E_ALL ^ E_NOTICE);	//remove notices
@@ -63,7 +54,14 @@
 			}
 			
 		?>
-
-	
+		<h2>Register</h2>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<input class="button" type="submit" name="register" value="Register Now">
+		</form>
+		<h2>Administrator Login</h2>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<input class="button" type="submit" name="adlogin" value="Admin Login">
+		</form>
+	</div>
 </body>
 </html>
