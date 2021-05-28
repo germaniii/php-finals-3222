@@ -1,5 +1,6 @@
 body {
     background-color: #5d5e61;
+    background-image: linear-gradient(#0a1931,#185adb);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: black;
  }
@@ -27,7 +28,7 @@ a{
 }
 
 .header{
-    background-color: #0a3da3;
+    background-color: #0a1931;
     text-align: center;
     position: fixed;
     top: 0px;
@@ -53,7 +54,7 @@ ul#navlist li{
 }
 
 .content{
-  background-color: white;
+  background-color: #feddbe;
   color: black;
   margin: 10%;
   margin-left: 30%;
@@ -63,8 +64,35 @@ ul#navlist li{
   text-align: left;
 }
 
+.content-search{
+  background-color: #feddbe;
+  color: black;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 5%;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.searchtable{
+  width: 100%; display: table;
+}
+
+.searchtable-row{
+  display: table-row
+}
+
+.left{
+  width: 50%; display: table-cell;
+}
+
+.right{
+  display: table-cell;
+}
+
 .content-log{
-  background-color: white;
+  background-color: #feddbe;
   color: black;
   margin: 10%;
   margin-left: 15%;
@@ -84,16 +112,26 @@ ul#navlist li{
 }
 
 input[type=button], input[type=submit], input[type=reset] {
-  background-color: #4b6bd6;
+  background-color: #ffc947;
   border: none;
-  color: white;
-  padding: 16px 32px;
+  color: black;
+  padding: 5px 10px;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #d3a539;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 clearfix::after {
   overflow: auto;
