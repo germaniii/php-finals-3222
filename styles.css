@@ -40,6 +40,7 @@ a{
 ul#navlist{
   float: right;
   padding-right: 10%;
+  color: white;
 }
 
 ul#navlist li{
@@ -51,13 +52,6 @@ ul#navlist li{
 
 }
 
-ul#navlist li:hover{
-  background-color: #6c7da0;
-  color:#474954;
-  border-radius: 5px;
-}
-
-
 .content{
   background-color: white;
   color: black;
@@ -66,7 +60,7 @@ ul#navlist li:hover{
   margin-right: 30%;
   padding: 5%;
   border-radius: 15px;
-  text-align: center;
+  text-align: left;
 }
 
 .footer{

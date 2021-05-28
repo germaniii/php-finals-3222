@@ -3,18 +3,20 @@
 ..............................................................
 create table contact (					
     id int(8) not null PRIMARY KEY,
-    name varchar(128) not null,
-    address varchar(500) not null,
+    fname varchar(128) not null,
+    lname varchar(128) not null,
+    baddress varchar(50) not null,
+    caddress varchar(50) not null,
+    paddress varchar(50) not null,
     number int(11) not null,
     email varchar(128) not null,
-    date varchar(128) not null
+    datein varchar(128) not null
 );
 ...............................................................
 
 
-
-insert into contact (id, name, address, number, email, date) VALUES ('18101050', 'Jan Carlo D. Orlanda', '80A Villalon Drive', '09955242711', 'carlosorlando2919@gmail.com', '2021-5-27 7:50:01');	//add row in table in SQL
-
+// Sign In
+insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein) VALUES ('18101050', 'Jan Carlo', 'Orlanda', '80A Villalon Drive', 'Labangon', 'Cebu City', '09955242711', 'carlosorlando2919@gmail.com', '2021-5-27 7:50:01');	
 
 select * from contact where id = '18101050'		// where is similar to if command so bale "select all from database 'contact' where the id is 18101050"
 

@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Address Book</title>
+	<title>Address Book | Home</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 	<meta http-equiv="Cache-control" content="no-cache">
 </head>
 <body>
 	<div class="header">
 		<h1>Contact Tracer</h1>	
+		<ul id="navlist">
+            <li id="navlist-item">Home</li>
+        </ul>
     </div>
 
 	<div class="content">
 		<h2>Sign In/Out</h2>
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 			ID Number: <input type="tel" pattern="[0-9]{8}" placeholder="16101002"name="id" required><br><br>	
-			<input type="submit" name="signin" value="sign in"><br>
+			<input type="submit" name="signin" value="Sign-In">
 		</form>
 		<h2>Register</h2>
-		
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			<input class="button" type="submit" name="register" value="register">
-			<input class="button" type="submit" name="dispall" value="display all contacts">
+			<input class="button" type="submit" name="register" value="Register Now">
+		</form>
+		<h2>Administrator Login</h2>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<input class="button" type="submit" name="adlogin" value="Admin Login">
 		</form>
 	</div>
 
@@ -69,12 +74,16 @@
 					
 						$reg = "update contact set date='$date' where id='$id';";
 						mysqli_query($conn, $reg);
-						echo $row['id'], ", logged in at ", $date;
+						echo $row['id'], ", signed in at ", $date;
 					}
 				}
 				else if($resultcheck == 0){			//if no contact in database display no result
 					echo "ID number not registered";
 				}
+			}
+
+			else if(isset($_POST['adlogin'])){		//go to register.php
+				header("Location: admin-login.php");
 			}
 			
 		?>

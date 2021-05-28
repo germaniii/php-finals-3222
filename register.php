@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Address Book</title>
+	<title>Address Book | Register</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 	<meta http-equiv="Cache-control" content="no-cache">
 </head>
 <body>
 	<div class="header">
 		<h1>Contact Tracer</h1>	
+		<ul id="navlist">
+            <li id="navlist-item">Register</li>
+        </ul>
     </div>
 
 	<div class="content">
 		<h2>Register Form</h2>	
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
 			<input size="50" type="tel" pattern="[0-9]{8}" placeholder="ID Number (16101002)" name="id" required><br><br>
-			<input size="50" type="text" placeholder="Name (Juan Dela Cruz)" name="name" required><br><br>
-			<input size="50" type="text" placeholder="Address (Purok Karne, San Isidro, Lucena City, Cebu)" name="address" required><br><br>
+			<input size="22" type="text" placeholder="First Name (Juan)" name="fname" required> 
+			<input size="22" type="text" placeholder="Last Name (Juan)" name="lname" required> <br><br>
+			<input size="22" type="text" placeholder="Barangay (San Isidro)" name="baddress" required>
+			<input size="22" type="text" placeholder="City (Cebu City)" name="caddress" required><br><br>
+			<input size="50" type="text" placeholder="Province (Cebu)" name="paddress" required><br><br>
 			<input size="50" type="tel" pattern="[0-9]{11}" placeholder="Number (09123456789)" name="number" required><br><br>
 			<input size="50" type="email" placeholder="USC Email (xyz@usc.edu.ph)" name="email" required><br><br>
-			<input type="submit" name="submit" value="submit"><br><br>
+			<input type="submit" name="submit_register" value="Submit Registration"><br><br>
 		</form>	
 
 		
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
-			<input type="submit" name="back" value="back"><br><br>
+			<input type="submit" name="back" value="Go Back"><br><br>
 		</form>	
 	</div>
 
@@ -41,7 +47,7 @@
 			$address = $_POST['address'];
 				$number = $_POST['number'];
 			$email = $_POST['email'];
-			$date = date("d-m-y, h:i:sa");
+			$date = date("y-m-d\TG:i");
 				
 			$reg = "insert into contact (id, name, address, number, email, date) VALUES ('$id', '$name', '$address', '$number', '$email', '$date');";
 			mysqli_query($conn, $reg);
