@@ -63,6 +63,17 @@ ul#navlist li{
   text-align: left;
 }
 
+.content-log{
+  background-color: white;
+  color: black;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 5%;
+  border-radius: 15px;
+  text-align: center;
+}
+
 .footer{
   background-color: #A9B3CE;
   position: fixed;

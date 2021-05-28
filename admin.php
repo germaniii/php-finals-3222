@@ -55,7 +55,7 @@
 		</form>	
 	</div>
 
-	<div class="content">
+	<div class="content-log">
 		<h2>Log Book</h2>
 		<?php
 			date_default_timezone_set('Asia/Manila');
@@ -77,7 +77,7 @@
 							echo $row['paddress'], " | ";
 							echo $row['number'], " | ";
 							echo $row['email'], " | ";
-							echo $row['date'], " | ";	
+							echo $row['date'];	
 							echo "<br><hr>";
 						}
 					}
