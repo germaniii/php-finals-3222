@@ -56,7 +56,7 @@
                     </form>
 
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
-                        <input type="submit" name="back" value="Go Back"><br><br>
+                        <input type="submit" name="back" value="Sign Out"><br><br>
                     </form>	
                 </div>
             </div>
@@ -75,19 +75,33 @@
 				$result = mysqli_query($conn, $sql);		//send SQL statement to database
 				$resultcheck = mysqli_num_rows($result);	//check if there is a result
 					if($resultcheck > 0){
+                        echo "<table class=\"table-log\">";
+                        echo "<tr>
+                                <th>ID
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Baranggay</th>
+                                <th>City</th>
+                                <th>Provine</th>
+                                <th>Number</th>
+                                <th>Email</th>
+                                <th>Sign-In</th>
+                                <th>Sign-Out</th>";
 						while($row = mysqli_fetch_assoc($result)){
-							
-							echo $row['id'], " | ";
-							echo $row['fname'], " | ";
-							echo $row['lname'], " | ";
-							echo $row['baddress'], " | ";
-							echo $row['caddress'], " | ";
-							echo $row['paddress'], " | ";
-							echo $row['number'], " | ";
-							echo $row['email'], " | ";
-							echo $row['date'];	
-							echo "<br><hr>";
+							echo "<tr>";
+							echo "<td>", $row['id'], "</td>";
+							echo "<td>", $row['fname'], "</td>";
+							echo "<td>", $row['lname'], "</td>";
+							echo "<td>", $row['baddress'], "</td>";
+							echo "<td>", $row['caddress'], "</td>";
+							echo "<td>", $row['paddress'], "</td>";
+							echo "<td>", $row['number'], "</td>";
+							echo "<td>", $row['email'], "</td>";
+							echo "<td>", $row['datein'], "</td>";	
+							echo "<td>", $row['dateout'], "</td>";	
+                            echo "</tr>";
 						}
+                        echo "</table>";
 					}
 					else if($resultcheck == 0 || $resultcheck == FALSE){			//if no contact in database display no result
 						echo "No results";

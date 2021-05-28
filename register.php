@@ -41,7 +41,7 @@
 					$email = $_POST['email'];
 					$date = date("y-m-d\TG:i");
 						
-					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, date) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date');";
+					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein, dateout) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date', '');";
 					mysqli_query($conn, $reg);
 					echo "Logbook updated<br><br>";
 				}

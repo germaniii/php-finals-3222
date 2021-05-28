@@ -94,13 +94,31 @@ ul#navlist li{
 .content-log{
   background-color: #feddbe;
   color: black;
-  margin: 10%;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   padding: 5%;
   border-radius: 15px;
   text-align: center;
 }
+
+table, td, th {
+  border: 1px solid black;
+}
+
+th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #ffc947;
+  color: black;
+}
+
+.table-log{
+  width: 100%;
+  border-collapse: collapse;  
+}
+
 
 .footer{
   background-color: #A9B3CE;

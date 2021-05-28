@@ -18,6 +18,7 @@
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 			ID Number: <input type="tel" pattern="[0-9]{8}" placeholder="16101002"name="id" required><br><br>	
 			<input type="submit" name="signin" value="Sign-In">
+			<input type="submit" name="signout" value="Sign-Out">
 		</form>
 		<?php
 			date_default_timezone_set('Asia/Manila');
@@ -37,11 +38,32 @@
 					while($row = mysqli_fetch_assoc($result)){
 						
 						
-						$date = date("d-m-y, h:i:sa");
+						$date = date("y-m-d\TG:i");
 					
-						$reg = "update contact set date='$date' where id='$id';";
+						$reg = "update contact set datein='$date' where id='$id';";
 						mysqli_query($conn, $reg);
 						echo $row['id'], ", signed in at ", $date;
+					}
+				}
+				else if($resultcheck == 0){			//if no contact in database display no result
+					echo "ID number not registered";
+				}
+			}
+
+			else if(isset($_POST['signout'])){
+				$id = $_POST['id'];
+				$sql = "select * from contact where id = '$id'";		
+				$result = mysqli_query($conn, $sql);		//send SQL statement to database
+				$resultcheck = mysqli_num_rows($result);	//check if there is a result
+				if($resultcheck > 0){
+					while($row = mysqli_fetch_assoc($result)){
+						
+						
+						$date = date("y-m-d\TG:i");
+					
+						$reg = "update contact set dateout='$date' where id='$id';";
+						mysqli_query($conn, $reg);
+						echo $row['id'], ", signed out at ", $date;
 					}
 				}
 				else if($resultcheck == 0){			//if no contact in database display no result
