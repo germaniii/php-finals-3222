@@ -39,14 +39,14 @@
 						
 						
 						$date = date("y-m-d\TG:i");
-					
+						
 						$reg = "update contact set datein='$date' where id='$id';";
 						mysqli_query($conn, $reg);
 						echo $row['id'], ", signed in at ", $date;
 					}
 				}
 				else if($resultcheck == 0){			//if no contact in database display no result
-					echo "ID number not registered";
+					echo '<i style="color:red;">ID number not registered</i>';
 				}
 			}
 
