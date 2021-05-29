@@ -1,4 +1,4 @@
-//create database in SQL//
+//create database in SQL
 //run MySQL in XAMPP > goto http://localhost/phpmyadmin > create new database >click database then goto SQL tab > type the command below.
 ..............................................................
 create table contact (					
@@ -8,7 +8,7 @@ create table contact (
     baddress varchar(50) not null,
     caddress varchar(50) not null,
     paddress varchar(50) not null,
-    number int(11) not null,
+    number varchar(11) not null,
     email varchar(128) not null,
     datein varchar(128) not null,
     dateout varchar(128) not null
