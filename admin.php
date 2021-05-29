@@ -66,8 +66,7 @@
 
 	<div class="content-log">
 	<h2>Log Book</h2>
-		
-///////////////////////////////////////////////////   PHP   //////////////////////////////////////////////////////		
+			
 	<?php
 		date_default_timezone_set('Asia/Manila');
 		error_reporting (E_ALL ^ E_NOTICE);	//remove notices
@@ -80,46 +79,48 @@
             	}
 
             	else if(isset($_POST['search_city_button'])){
-			// city to search
-    			$city = $_POST['search_city'];
-   
-    			// mysql search query
-    			$query = "SELECT * FROM contact WHERE caddress = '$city'";		//sql statement to look for contacts with inputted city
-    			writeMsg($result);
+					// city to search
+					$city = $_POST['search_city'];
+	
+					// mysql search query
+					$query = "SELECT * FROM contact WHERE caddress = '$city'";		//sql statement to look for contacts with inputted city
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);
 
             	}else if(isset($_POST['search_brgy_button'])){
                 	// brgy to search
-    			$brgy = $_POST['search_brgy'];
-   
-    			// mysql search query
-    			$query = "SELECT * FROM contact WHERE baddress = '$brgy'";		//sql statement to look for contacts with inputted brgy
-    			writeMsg($result);
+					$brgy = $_POST['search_brgy'];
+	
+					// mysql search query
+					$query = "SELECT * FROM contact WHERE baddress = '$brgy'";		//sql statement to look for contacts with inputted brgy
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);
             	}else if(isset($_POST['search_prov_button'])){
                 	// province to search
-    			$prov = $_POST['search_prov'];
-   
-    			// mysql search query
-    			$query = "SELECT * FROM contact WHERE paddress = '$prov'";		//sql statement to look for contacts with inputted province
-    			writeMsg($result);
+					$prov = $_POST['search_prov'];
+	
+					// mysql search query
+					$query = "SELECT * FROM contact WHERE paddress = '$prov'";		//sql statement to look for contacts with inputted province
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);
 
             	}else if(isset($_POST['search_id_button'])){
                 	// id to search
-    			$id = $_POST['search_id'];
-   
-    			// mysql search query
-    			$query = "SELECT * FROM contact WHERE id = $id LIMIT 1";		//sql statement to look for contacts with inputted id 
-    			writeMsg($result);							//Limit 1 because id is unique
+					$id = $_POST['search_id'];
+	
+					// mysql search query
+					$query = "SELECT * FROM contact WHERE id = $id LIMIT 1";		//sql statement to look for contacts with inputted id 
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);							//Limit 1 because id is unique
 
             	}else if(isset($_POST['search_name_button'])){
                 	// name to search
-    			$name = $_POST['search_name'];
-   
-    			// mysql search query
-    			$query = "SELECT * FROM contact WHERE lname = '$name'";			//sql statement to look for contacts with inputted lastname
-    
-    
-    			$result = mysqli_query($conn, $query);					//send SQL statement to database
-			writeMsg($result);		
+					$name = $_POST['search_name'];
+	
+					// mysql search query
+					$query = "SELECT * FROM contact WHERE lname = '$name'";			//sql statement to look for contacts with inputted lastname
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);		
             	}else if(isset($_POST['search_time_button'])){					//work in progress sksksks
                 
             	}
@@ -138,7 +139,7 @@
                                 <th>Last Name</th>
                                 <th>Baranggay</th>
                                 <th>City</th>
-                                <th>Provine</th>
+                                <th>Province</th>
                                 <th>Number</th>
                                 <th>Email</th>
                                 <th>Sign-In</th>
@@ -160,13 +161,12 @@
 					}
                 echo "</table>";
 		}
-		else if($resultcheck == 0 || $resultcheck == FALSE){			//if no contact in database display no result
+		if($resultcheck == 0 || $resultcheck == FALSE){			//if no contact in database display no result
 			echo "No results";
 		}
 	}
 //-------------------------------  FUNCTION  ------------------------------------------//	
 	?>
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	</div>
 
 	

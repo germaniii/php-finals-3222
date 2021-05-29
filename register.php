@@ -14,7 +14,7 @@
     </div>
 
 	<div class="content">
-		<h2>Register Form</h2>	
+		<h2>Registration Form</h2>	
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
 			<input size="50" type="tel" pattern="[0-9]{8}" placeholder="ID Number (16101002)" name="id" required><br><br>
 			<input size="22" type="text" placeholder="First Name (Juan)" name="fname" required> 
