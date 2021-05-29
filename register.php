@@ -43,7 +43,7 @@
 						
 					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein, dateout) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date', '');";
 					mysqli_query($conn, $reg);
-					echo "Logbook updated<br><br>";
+					echo '<i style="color:green;">Logbook Updated</i>', "<br><br>";
 				}
 				else if(isset($_POST['back'])){
 					header("Location: index.php");
