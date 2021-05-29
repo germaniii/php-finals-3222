@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2021 at 03:54 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: May 29, 2021 at 08:06 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,8 @@ CREATE TABLE `contact` (
   `number` varchar(11) NOT NULL,
   `email` varchar(128) NOT NULL,
   `datein` varchar(128) NOT NULL,
-  `dateout` varchar(128) NOT NULL
+  `dateout` varchar(128) NOT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
