@@ -3,13 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: May 30, 2021 at 10:36 AM
-=======
--- Generation Time: May 29, 2021 at 08:06 PM
->>>>>>> 69f0d6e8d2cb29133f5c3f9d5a411ae00c90cf03
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: May 30, 2021 at 04:23 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -120,7 +116,80 @@ INSERT INTO `barangay` (`id`, `brgy`) VALUES
 (77, 'Tinago'),
 (78, 'Tisa'),
 (79, 'To-ong'),
-(80, 'Zapatera');
+(80, 'Zapatera'),
+(81, 'Other');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `id` int(8) NOT NULL,
+  `city` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `city`) VALUES
+(2, 'Bogo City'),
+(3, 'Carcar City'),
+(4, 'Danao City'),
+(5, 'Naga City'),
+(6, 'Talisay City'),
+(7, 'Toledo City'),
+(8, 'Cebu City'),
+(9, 'Lapu-Lapu City'),
+(10, 'Mandaue City'),
+(11, 'Alcantara Municipality'),
+(12, 'Alcoy Municipality'),
+(13, 'Alegria Municipality'),
+(14, 'Aloguinsan Municipality'),
+(15, 'Argao Municipality'),
+(16, 'Asturias Municipality'),
+(17, 'Badian Municipality'),
+(18, 'Balamban Municipality'),
+(19, 'Bantayan Municipality'),
+(20, 'Barili Municipality'),
+(21, 'Boljoon Municipality'),
+(22, 'Borbon Municipality'),
+(23, 'Carmen Municipality'),
+(24, 'Catmon Municipality'),
+(25, 'Compostela Municipality'),
+(26, 'Consolacion Municipality'),
+(27, 'Cordova Municipality'),
+(28, 'Daanbantayan Municipality'),
+(29, 'Dalaguete Municipality'),
+(30, 'Dumanjug Municipality'),
+(31, 'Ginatilan Municipality'),
+(32, 'Liloan Municipality'),
+(33, 'Madridejos Municipality'),
+(34, 'Malabuyoc Municipality'),
+(35, 'Medellin Municipality'),
+(36, 'Minglanilla Municipality'),
+(37, 'Moalboal Municipality'),
+(38, 'Oslob Municipality'),
+(39, 'Pilar Municipality'),
+(40, 'Pinamungahan Municipality'),
+(41, 'Poro Municipality'),
+(42, 'Ronda Municipality'),
+(43, 'Samboan Municipality'),
+(44, 'San Fernando Municipality'),
+(45, 'San Francisco Municipality'),
+(46, 'San Remegio Municipality'),
+(47, 'Santa Fe Municipality'),
+(48, 'Santander Municipality'),
+(49, 'Sibonga Municipality'),
+(50, 'Sogod Municipality'),
+(51, 'Tabogon Municipality'),
+(52, 'Tabuelan Municipality'),
+(53, 'Tuburan Municipality'),
+(54, 'Tudela Municipality'),
+(55, 'Liloan Municipality'),
+(56, 'Other');
 
 -- --------------------------------------------------------
 
@@ -143,15 +212,6 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`id`, `fname`, `lname`, `baddress`, `caddress`, `paddress`, `number`, `email`, `datein`, `dateout`, `date`) VALUES
-(18100010, 'German', 'Felisarta', 'Bacayan', 'Cebu City', 'Cebu', '09955242722', 'german@gmail.com', '21-05-30T14:16', '', '2021-05-30'),
-(18100011, 'Adrian', 'Sarmiento', 'Busay', 'Cebu City', 'Cebu', '09955242733', 'adrian@gmail.com', '21-05-30T14:17', '', '2021-05-30'),
-(18101050, 'Jan Carlo', 'Orlanda', 'Apas', 'Cebu City', 'Cebu', '09955242711', 'carlorlanda@yahoo.com', '21-05-30T14:05', '', '2021-05-30');
-
---
 -- Indexes for dumped tables
 --
 
@@ -159,6 +219,12 @@ INSERT INTO `contact` (`id`, `fname`, `lname`, `baddress`, `caddress`, `paddress
 -- Indexes for table `barangay`
 --
 ALTER TABLE `barangay`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -175,7 +241,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `barangay`
 --
 ALTER TABLE `barangay`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
