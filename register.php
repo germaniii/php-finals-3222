@@ -19,7 +19,20 @@
 			<input size="50" type="tel" pattern="[0-9]{8}" placeholder="ID Number (16101002)" name="id" required><br><br>
 			<input size="22" type="text" placeholder="First Name (Juan)" name="fname" required> 
 			<input size="22" type="text" placeholder="Last Name (Juan)" name="lname" required> <br><br>
-			<input size="22" type="text" placeholder="Barangay (San Isidro)" name="baddress" required>
+			
+			<?php 		include_once 'db.inc.php';
+					
+					$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
+					$result_brgy = mysqli_query($conn, $query);?>
+
+					
+					<select name = "barangay">
+					<?php while($row1 = mysqli_fetch_array($result_brgy))
+					echo "<option>", $row1[1], "</option>";?> 
+					</select>
+			
+			
+			
 			<input size="22" type="text" placeholder="City (Cebu City)" name="caddress" required><br><br>
 			<input size="50" type="text" placeholder="Province (Cebu)" name="paddress" required><br><br>
 			<input size="50" type="tel" pattern="[0-9]{11}" placeholder="Number (09123456789)" name="number" required><br><br>
@@ -34,14 +47,16 @@
 					$id = $_POST['id'];
 					$fname = $_POST['fname'];
 					$lname = $_POST['lname'];
-					$baddress = $_POST['baddress'];
+					$baddress = $_POST['barangay'];
 					$caddress = $_POST['caddress'];
 					$paddress = $_POST['paddress'];
 					$number = $_POST['number'];
 					$email = $_POST['email'];
 					$date = date("y-m-d\TG:i");
+					$searchdate = date("Y-m-d");
+					
 						
-					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein, dateout) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date', '');";
+					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein, dateout, date) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date', '', '$searchdate');";
 					mysqli_query($conn, $reg);
 					echo '<i style="color:green;">Logbook Updated</i>', "<br><br>";
 				}

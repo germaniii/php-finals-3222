@@ -25,7 +25,16 @@
                     </form>
                     <h2>Search Barangay</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <input type="text" placeholder="San Isidro" name="search_brgy" required>	
+                        <?php 		include_once 'db.inc.php';
+					
+					$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
+					$result_brgy = mysqli_query($conn, $query);?>
+
+					
+					<select name = "barangay">
+					<?php while($row1 = mysqli_fetch_array($result_brgy))
+					echo "<option>", $row1[1], "</option>";?> 
+					</select>
                         <input type="submit" name="search_brgy_button" value="Search Brgy"><br>
                     </form>
                     <h2>Search Province</h2>
@@ -45,9 +54,9 @@
                         <input type="text" placeholder="Surname" name="search_name" required>	
                         <input type="submit" name="search_name_button" value="Search Name"><br>
                     </form>
-                    <h2>Search Time and Day</h2>
+                    <h2>Search Date</h2>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <input type="datetime-local" name="search_time" required>
+                        <input type="date" name="search_time" required>
                         <input type="submit" name="search_time_button" value="Search Time and Day"><br>
                     </form>
 
@@ -89,8 +98,8 @@
 
             	}else if(isset($_POST['search_brgy_button'])){
                 	// brgy to search
-					$brgy = $_POST['search_brgy'];
-	
+					$brgy = $_POST['barangay'];
+					
 					// mysql search query
 					$query = "SELECT * FROM contact WHERE baddress = '$brgy'";		//sql statement to look for contacts with inputted brgy
 					$result = mysqli_query($conn, $query);		//send SQL statement to database
@@ -122,7 +131,12 @@
 					$result = mysqli_query($conn, $query);		//send SQL statement to database
 					writeMsg($result);		
             	}else if(isset($_POST['search_time_button'])){					//work in progress sksksks
-                
+                	$date = $_POST['search_time'];
+
+			// mysql search query
+			$query = "SELECT * FROM contact WHERE date = '$date'";			//sql statement to look for contacts with inputted date
+					$result = mysqli_query($conn, $query);		//send SQL statement to database
+					writeMsg($result);
             	}
 
             	else if(isset($_POST['back'])){
