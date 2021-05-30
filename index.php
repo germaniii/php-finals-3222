@@ -3,7 +3,6 @@
 <head>
 	<title>Address Book | Home</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-	<meta http-equiv="Cache-control" content="no-cache">
 </head>
 <body>
 	<div class="header">

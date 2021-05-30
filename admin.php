@@ -3,7 +3,6 @@
 <head>
 	<title>Address Book | Home</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-	<meta http-equiv="Cache-control" content="no-cache">
 </head>
 <body>
 	<div class="header">
@@ -18,56 +17,60 @@
             <div class="searchtable-row">
                 <div class="left">
                     <h2>Search City</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			
+                    <form method="post">
                         <input type="text" placeholder="Lucena City" name="search_city" required>	
                         <input type="submit" name="search_city_button" value="Search City"><br>
                     </form>
                     <h2>Search Barangay</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <?php 		include_once 'db.inc.php';
-					
-					$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
-					$result_brgy = mysqli_query($conn, $query);?>
-
-					
+                    <form method="post">
 					<select name = "barangay">
-					<?php while($row1 = mysqli_fetch_array($result_brgy))
-					echo "<option>", $row1[1], "</option>";?> 
+						<?php 
+							include_once 'db.inc.php';
+							$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
+							$result_brgy = mysqli_query($conn, $query);
+							while($row1 = mysqli_fetch_array($result_brgy))
+							echo "<option>", $row1[1], "</option>";
+						?> 
 					</select>
                         <input type="submit" name="search_brgy_button" value="Search Brgy"><br>
                     </form>
                     <h2>Search Province</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <input type="text" placeholder="Cebu" name="search_prov" required>
                         <input type="submit" name="search_prov_button" value="Search Province"><br>
                     </form>
                     <h2>Search ID Number</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <input type="tel" pattern="[0-9]{8}" placeholder="16101002" name="search_id" required>	
                         <input type="submit" name="search_id_button" value="Search ID Number"><br>
                     </form>
                 </div>
+
                 <div class="right">
                     <h2>Search Name</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <input type="text" placeholder="Surname" name="search_name" required>	
                         <input type="submit" name="search_name_button" value="Search Name"><br>
                     </form>
                     <h2>Search Date</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <input type="date" name="search_time" required>
                         <input type="submit" name="search_time_button" value="Search Time and Day"><br>
                     </form>
 
                     <h2>Display Log Book</h2>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <input class="button" type="submit" name="dispall" value="Display All"><br><br>
                     </form>
 
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">	
+                    <form method="post">	
                         <input type="submit" name="back" value="Sign Out"><br><br>
                     </form>	
+					<?php
+						if(isset($_POST['back'])){
+							header("Location:index.php");
+						}
+					?>
                 </div>
             </div>
         </div>
@@ -75,11 +78,9 @@
 
 	<div class="content-log">
 	<h2>Log Book</h2>
-			
 	<?php
 		date_default_timezone_set('Asia/Manila');
 		error_reporting (E_ALL ^ E_NOTICE);	//remove notices
-		include_once 'db.inc.php';		//database reference
 			
 		if(isset($_POST['dispall'])){		//display all
 			$sql = "SELECT * from contact";		//SQL statement
@@ -137,10 +138,6 @@
 			$query = "SELECT * FROM contact WHERE date = '$date'";			//sql statement to look for contacts with inputted date
 					$result = mysqli_query($conn, $query);		//send SQL statement to database
 					writeMsg($result);
-            	}
-
-            	else if(isset($_POST['back'])){
-                	header("Location: index.php");
             	}
 //-------------------------------  FUNCTION  ------------------------------------------//
 	function writeMsg($result) {			//function to check for results then display results
