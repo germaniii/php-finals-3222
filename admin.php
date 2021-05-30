@@ -11,34 +11,52 @@
             <li id="navlist-item">Administrator Mode</li>
         </ul>
     </div>
-
+	<?php
+		if(isset($_POST['back'])){
+			header("Location:index.php");
+		}
+	?>
 	<div class="content-search">
         <div class="searchtable">
             <div class="searchtable-row">
                 <div class="left">
                     <h2>Search City</h2>
                     <form method="post">
-                        <input type="text" placeholder="Lucena City" name="search_city" required>	
+						<select name = "search_city" required>
+							<option value="" hidden disabled selected>Choose City</option>
+							<?php 
+								include_once 'db.inc.php';
+								$query = "SELECT * FROM city";		//sql statement to look for contacts with inputted brgy
+								$result_city = mysqli_query($conn, $query);
+								while($row1 = mysqli_fetch_array($result_city))
+								echo "<option>", $row1[1], "</option>";
+							?> 
+						</select>
                         <input type="submit" name="search_city_button" value="Search City"><br>
                     </form>
                     <h2>Search Barangay</h2>
                     <form method="post">
-					<select name = "barangay">
-						<?php 
-							include_once 'db.inc.php';
-							$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
-							$result_brgy = mysqli_query($conn, $query);
-							while($row1 = mysqli_fetch_array($result_brgy))
-							echo "<option>", $row1[1], "</option>";
-						?> 
-					</select>
-                        <input type="submit" name="search_brgy_button" value="Search Brgy"><br>
+						<select name = "search_brgy" required>
+							<option value="" hidden disabled selected>Choose Baranggay</option>
+							<?php 
+								include_once 'db.inc.php';
+								$query = "SELECT * FROM barangay";		//sql statement to look for contacts with inputted brgy
+								$result_brgy = mysqli_query($conn, $query);
+								while($row1 = mysqli_fetch_array($result_brgy))
+								echo "<option>", $row1[1], "</option>";
+							?> 
+						</select>
+						<input type="submit" name="search_brgy_button" value="Search Brgy"><br>
                     </form>
                     <h2>Search Province</h2>
-                    <form method="post">
-                        <input type="text" placeholder="Cebu" name="search_prov" required>
-                        <input type="submit" name="search_prov_button" value="Search Province"><br>
-                    </form>
+						<form method="post">
+							<select name = "search_prov" required>
+								<option value="" hidden disabled selected>Choose Province</option>
+								<option>Cebu</option>
+								<option>Other</option>
+							</select>
+							<input type="submit" name="search_prov_button" value="Search Province"><br>
+                    	</form>
                     <h2>Search ID Number</h2>
                     <form method="post">
                         <input type="tel" pattern="[0-9]{8}" placeholder="16101002" name="search_id" required>	
@@ -66,11 +84,6 @@
                     <form method="post">	
                         <input type="submit" name="back" value="Sign Out"><br><br>
                     </form>	
-					<?php
-						if(isset($_POST['back'])){
-							header("Location:index.php");
-						}
-					?>
                 </div>
             </div>
         </div>
@@ -99,7 +112,7 @@
 
             	}else if(isset($_POST['search_brgy_button'])){
                 	// brgy to search
-					$brgy = $_POST['barangay'];
+					$brgy = $_POST['search_brgy'];
 					
 					// mysql search query
 					$query = "SELECT * FROM contact WHERE baddress = '$brgy'";		//sql statement to look for contacts with inputted brgy
