@@ -39,7 +39,7 @@
 						
 						$date = date("y-m-d\TG:i");
 						
-						$reg = "update contact set datein='$date' where id='$id';";
+						$reg = "update contact set date='$date' where id='$id';";
 						mysqli_query($conn, $reg);
 						echo $row['id'], ", signed in at ", $date;
 					}

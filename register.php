@@ -53,8 +53,6 @@
 					$email = $_POST['email'];
 					$date = date("y-m-d\TG:i");
 					$searchdate = date("Y-m-d");
-					
-						
 					$reg = "insert into contact (id, fname, lname, baddress, caddress, paddress, number, email, datein, dateout, date) VALUES ('$id', '$fname', '$lname', '$baddress', '$caddress', '$paddress', '$number', '$email', '$date', '', '$searchdate');";
 					mysqli_query($conn, $reg);
 					echo '<i style="color:green;">Logbook Updated</i>', "<br><br>";
