@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2021 at 04:23 PM
+-- Generation Time: Jun 01, 2021 at 05:37 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -210,6 +210,16 @@ CREATE TABLE `contact` (
   `dateout` varchar(128) NOT NULL,
   `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `fname`, `lname`, `baddress`, `caddress`, `paddress`, `number`, `email`, `datein`, `dateout`, `date`) VALUES
+(16100402, 'Cessna', 'Belarmino', 'Calamba', 'Cebu City', 'Cebu', '09993329291', 'aasdas@g.com', '21-06-01T12:12', '21-06-01T12:12', '21-06-01T12:08'),
+(16101002, 'German III', 'Felisarta', 'Other', 'Talisay City', 'Cebu', '09159301068', 'germaniiifelisarta@gmail.com', '21-06-01T12:13', '21-06-01T12:13', '2021-06-01'),
+(16101003, 'Adrian', 'Sarmiento', 'Other', 'Minglanilla Municipality', 'Cebu', '09959967884', 'makex30614@mxcdd.com', '21-06-01T12:02', '', '2021-06-01'),
+(16101005, 'Carlo', 'Orlanda', 'Other', 'Other', 'Other', '09959301068', 'roboltactivator@gmail.com', '21-06-01T12:03', '', '2021-06-01');
 
 --
 -- Indexes for dumped tables
